@@ -1,0 +1,16 @@
+# ignore the routTree file
+routeTree.gen.ts
+
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+.env
+.nitro
+.tanstack
+.wrangler
+.output
+.vinxi
+__unconfig*
+todos.json
