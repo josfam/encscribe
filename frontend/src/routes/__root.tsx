@@ -1,5 +1,5 @@
 import { Outlet, createRootRoute } from '@tanstack/react-router'
-
+import { AddNoteButton } from '@/components/AddNoteButton'
 import '../styles.css'
 
 export const Route = createRootRoute({
@@ -9,11 +9,12 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <>
-      <div className="bg-gray-200 gap-8 p-4 text-white text-2xl font-bold flex items-center justify-center">
-        <p className="text-gray-950">Joseph's vault</p>
-        <button className="bg-amber-300 active:bg-amber-500 active:scale-98 hover:bg-amber-400 flex items-center justify-center py-2 border border-amber-500 px-5 cursor-pointer font-normal rounded-full text-gray-900 shadow-lg">
-          Add note
-        </button>
+      <div className="bg-gray-200 gap-8 p-4 text-white font-bold flex items-center justify-center">
+        <p className="text-gray-950 text-2xl">Joseph's vault</p>
+        {/* button was here */}
+        <div className="absolute right-10">
+          <AddNoteButton />
+        </div>
       </div>
       <Outlet />
     </>
