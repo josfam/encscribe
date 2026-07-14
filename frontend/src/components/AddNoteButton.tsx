@@ -21,6 +21,11 @@ export const AddNoteButton = () => {
     },
   })
 
+  // function for submitting the note data
+  const handleSubmit = () => {
+    console.log('Form data about to be submitted')
+  }
+
   return (
     <Dialog>
       <form>
@@ -54,14 +59,29 @@ export const AddNoteButton = () => {
             )}
           </form.Field>
 
-          <div className="flex flex-col gap-1">
-            <label className="text-xl">Content</label>
-            <textarea
-              rows={8}
-              className="border border-gray-400 text-xl"
-            ></textarea>
-          </div>
-          <button className="bg-amber-300 rounded-lg p-4 text-xl">
+          <form.Field name="content">
+            {(field) => (
+              <div className="flex flex-col gap-1">
+                <label className="text-xl" htmlFor={field.name}>
+                  Content
+                </label>
+                <textarea
+                  id={field.name}
+                  name={field.name}
+                  value={field.state.value}
+                  onChange={(e) => field.handleChange(e.target.value)}
+                  rows={8}
+                  className="border border-gray-400 text-xl"
+                ></textarea>
+              </div>
+            )}
+          </form.Field>
+
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className="bg-amber-300 active:bg-amber-600 active:scale-98 hover:bg-amber-400 cursor-pointer rounded-lg p-4 text-xl"
+          >
             Create
           </button>
         </DialogContent>
