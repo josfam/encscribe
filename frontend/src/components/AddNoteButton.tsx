@@ -19,16 +19,20 @@ export const AddNoteButton = () => {
       title: '',
       content: '',
     },
+    // function for submitting the form data
+    onSubmit: async () => {
+      console.log('Form data about to be submitted')
+    },
   })
-
-  // function for submitting the note data
-  const handleSubmit = () => {
-    console.log('Form data about to be submitted')
-  }
 
   return (
     <Dialog>
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          form.handleSubmit()
+        }}
+      >
         <DialogTrigger asChild>
           <button className="bg-amber-900 active:bg-amber-900 active:scale-98 hover:bg-amber-700 flex items-center justify-center border border-amber-500 cursor-pointer font-normal text-2xl rounded-full text-gray-900 shadow-lg">
             <FaCirclePlus className="w-10 h-10 text-amber-300" />
@@ -79,7 +83,6 @@ export const AddNoteButton = () => {
 
           <button
             type="submit"
-            onClick={handleSubmit}
             className="bg-amber-300 active:bg-amber-600 active:scale-98 hover:bg-amber-400 cursor-pointer rounded-lg p-4 text-xl"
           >
             Create
