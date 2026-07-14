@@ -3,10 +3,8 @@ import { useForm } from '@tanstack/react-form'
 
 import {
   Dialog,
-  DialogClose,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
