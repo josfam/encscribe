@@ -5,6 +5,10 @@ from fastapi import FastAPI
 app = FastAPI(title="encscribe backend")
 
 
+# api endpoint for /
+@app.get("/")
+def root():
+    return {"status": "OK"}
 
 
 if __name__ == "__main__":
