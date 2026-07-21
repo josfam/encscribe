@@ -1,10 +1,18 @@
 """Entrypoint for the backend application."""
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 # The application object that represents the backend API "application"
 app = FastAPI(
     title="encscribe backend",
+)
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 @app.get("/")
@@ -19,7 +27,7 @@ def app_details():
 
 @app.get("/username")
 def username():
-    return {"content": "Joseph"}
+    return {"content": "Maria"}
 
 
 if __name__ == "__main__":
