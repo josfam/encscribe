@@ -7,10 +7,19 @@ app = FastAPI(
     title="encscribe backend",
 )
 
-
 @app.get("/")
 def root():
     return {"status": "ok"}
+
+
+@app.get("/app-details")
+def app_details():
+    return {"content": "Encscribe: An encrypted note-taking application"}
+
+
+@app.get("/username")
+def username():
+    return {"content": "Joseph"}
 
 
 if __name__ == "__main__":
