@@ -1,9 +1,12 @@
 """The entry point to the backend"""
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(title="encscribe backend")
-
+app.add_middleware(
+    CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"]
+)
 
 # api endpoint for /
 @app.get("/")
@@ -18,7 +21,7 @@ def app_details():
 
 @app.get("/username")
 def get_username():
-    return {"content": "Maria"}
+    return {"content": "Melanie"}
 
 
 if __name__ == "__main__":
