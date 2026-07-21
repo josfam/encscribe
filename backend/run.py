@@ -11,6 +11,16 @@ def root():
     return {"status": "OK"}
 
 
+@app.get("/app-details")
+def app_details():
+    return {"content": "Encscribe: An encrypted note-taking application"}
+
+
+@app.get("/username")
+def get_username():
+    return {"content": "Maria"}
+
+
 if __name__ == "__main__":
     import uvicorn
 
