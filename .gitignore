@@ -1,6 +1,7 @@
 # Agents and all that
 .claude/
 .codex/
+notes/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
