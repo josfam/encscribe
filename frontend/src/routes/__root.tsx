@@ -1,5 +1,5 @@
 import { Outlet, createRootRoute } from '@tanstack/react-router'
-import { useEffect, useState } from 'react'
+import { useQuery } from '@tanstack/react-query'
 import { AddNoteButton } from '@/components/AddNoteButton'
 import '../styles.css'
 
@@ -8,15 +8,13 @@ export const Route = createRootRoute({
 })
 
 function useUsername() {
-  const [username, setUsername] = useState('')
+  const { data } = useQuery({
+    queryKey: ['username'],
+    queryFn: () =>
+      fetch('http://127.0.0.1:8000/username').then((res) => res.json()),
+  })
 
-  useEffect(() => {
-    fetch('http://127.0.0.1:8000/username')
-      .then((res) => res.json())
-      .then((data) => setUsername(data.content))
-  }, [])
-
-  return username
+  return data?.content ?? ''
 }
 
 function RootComponent() {
